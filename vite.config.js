@@ -2,13 +2,6 @@ import { defineConfig } from 'vite';
 import { Packer } from 'roadroller';
 
 export default defineConfig({
-  server: {
-    port: 3000,
-    hmr: false
-  },
-  preview: {
-    port: 3001
-  },
   plugins: [
     plugin()
   ],
