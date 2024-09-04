@@ -22,6 +22,8 @@
     "html-minifier": "^4.0.0",
     "jszip": "^3.10.1",
     "roadroller": "^2.1.0",
-    "terser": "^5.19.2"
+    "terser": "^5.19.2",
+    "vite-plugin-full-reload": "^1.0.5",
+    "zzfx": "^1.2.1"
   }
 }

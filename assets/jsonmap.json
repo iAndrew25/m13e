@@ -83,11 +83,11 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"m13e.json"
+         "source":"m13e"
         }, 
         {
          "firstgid":7,
-         "source":"m13e-bg.json"
+         "source":"m13e-bg"
         }],
  "tilewidth":16,
  "type":"map",

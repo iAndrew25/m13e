@@ -9,10 +9,10 @@ import {
 } from 'kontra';
 import Scene from './scene';
 
-import jsonmap from '../assets/jsonmap.json';
-import m13e from '../assets/m13e.json'
-import m13ebg from '../assets/m13e-bg.json'
-import m13epng from '../assets/m13e.png';
+// import jsonmap from '../assets/jsonmap.json';
+import {tileset, tilesetBg} from './tilesets.ts';
+// import m13epng from '../assets/m13e.png';
+initKeys();
 
 class Game {
     constructor() {
@@ -26,16 +26,14 @@ class Game {
         this.canvas = canvas;
         this.context = context;
 
-        initKeys();
+
+        dataAssets[new URL('m13e', location.href).href] = tileset;
+        dataAssets[new URL('m13e-bg', location.href).href] = tilesetBg;
 
         await load(...assetsToLoad);
 
-        // dataAssets[new URL('assets/m13e.png', location.href).href] = m13epng;
-        dataAssets[new URL('assets/m13e.json', location.href).href] = m13e;
-        dataAssets[new URL('assets/m13e-bg.json', location.href).href] = m13ebg;
-        
         this.currentScene = new Scene();
-        
+
         this.addEventListeners();
         this.gameLoop();
     }

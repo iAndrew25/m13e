@@ -1,41 +1,74 @@
 import { defineConfig } from 'vite';
-import { viteJs13k, viteJs13kPre } from './plugins/vite-js13k'
-import kontra from 'rollup-plugin-kontra';
+import { Packer } from 'roadroller';
 
 export default defineConfig({
   server: {
-    port: 3000
+    port: 3000,
+    hmr: false
+  },
+  preview: {
+    port: 3001
   },
   plugins: [
-    kontra({
-      tileEngine: {
-        query: true,
-        tiled: true
-      },
-      assetsToLoad: true,
-      debug: true
-    }),
-    viteJs13kPre(),
-    viteJs13k(),
+    plugin()
   ],
   build: {
+    target: 'esnext',
+    modulePreload: {
+      polyfill: false
+    },
+    reportCompressedSize: false,
     minify: 'terser',
     terserOptions: {
       toplevel: true,
       compress: {
-        passes: 2,
+        drop_console: true,
+        ecma: 2020,
+        module: true,
+        passes: 3,
         unsafe: true,
         unsafe_arrows: true,
         unsafe_comps: true,
         unsafe_math: true,
+        unsafe_methods: true,
+        unsafe_proto: true
       },
-      mangle: { properties: { keep_quoted: false }},
-      module: true,
+      format: {
+        comments: false,
+        ecma: 2020
+      },
+      module: true
     },
-    assetsInlineLimit: 0,
-    modulePreload: {
-      polyfill: false,
-    },
-    reportCompressedSize: false,
-  },
+    assetsInlineLimit: 0
+  }
 });
+
+async function roadroll(data) {
+  const packer = new Packer([{
+    data,
+    type: 'js',
+    action: 'eval'
+  }], {});
+  await packer.optimize(2);
+  const { firstLine, secondLine } = packer.makeDecoder();
+  return firstLine + secondLine;
+}
+
+function plugin() {
+  return {
+    enforce: 'post',
+    generateBundle: async (options, bundle) => {
+      const html = bundle['index.html'];
+      const js = bundle[Object.keys(bundle).filter(i => i.endsWith('.js'))[0]];
+      const packedJs = await roadroll(js.code);
+
+      html.source = html.source
+        .replace(/<script.*<\/script>/, '')
+        .replace('</body>', () => `<script>${packedJs}</script>`)
+        .replace(/\n+/g, '');
+
+      // Delete the JS so it doesn't go into the dist folder
+      delete bundle[js.fileName];
+    }
+  };
+}
