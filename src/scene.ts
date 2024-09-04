@@ -9,7 +9,7 @@ import jsonmap from '../assets/jsonmap.json';
 
 class Scene {
     constructor() {
-        this.level = 1;
+        this.level = 8;
         this.timer = 13.00;
         this.gameSpeed = 3;
 
@@ -148,7 +148,7 @@ class Scene {
                 const collidesWithWall = this.walls.some(wall => collides(collisionBox, wall));
                 const collidesWithLava = this.lavas.some(lava => collides(collisionBox, lava));
 
-                if(collidesWithFinish && areAllCoinsCollected) {
+                if(collidesWithFinish && areAllCoinsCollected && this.level < 9) {
                     this.initNextLevel();
                 } else if(collidesWithLava) {
                     this.initLevel();
@@ -162,10 +162,15 @@ class Scene {
     }
 
     timerUpdate = dt => {
-        this.timer -= dt;
-        if(this.timer <= 0) {
-            this.initLevel()
+        if(this.level < 9) {
+            this.timer -= dt;
+            if(this.timer <= 0) {
+                this.initLevel()
+            } else {
+                this.timerText.text = this.timer.toFixed(2);
+            }
         } else {
+            this.timer = 13.00;
             this.timerText.text = this.timer.toFixed(2);
         }
     }
