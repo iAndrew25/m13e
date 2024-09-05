@@ -4,27 +4,25 @@ Welcome to **M13E**, a compact yet thrilling game crafted for the js13kGames 202
 
 ## **Game Overview**
 
-In **M13E**, you’ll navigate a series of challenging mazes, each with its own quirky objectives and tight 13-second time limits. As you progress through the game, you’ll face obstacles that play on the theme of 13, including:
+Each level gives you **13 seconds** to:
+- **Find the exit** before time runs out.
+- **Collect coins** scattered throughout the maze.
+- **Avoid dangerous traps** like lava and obstacles.
+- **Utilize portals** to walk through walls as the difficulty ramps up.
 
-- **Level 1:** Find the exit.
-- **Level 2:** Collect 1 coin and find the finish.
-- **Level 3:** Collect 2 coins and find the finish.
-- **Level 4:** Collect 3 coins and find the finish.
-- **Level 5:** Collect 4 coins and avoid lava.
-- **Level 6:** Collect 5 coins, avoid lava, and use the portal to walk through walls.
-- **Level 7:** Collect 6 coins, avoid lava, and use the portal to walk through walls.
-- **Level 8:** Navigate through a maze with lava everywhere to reach the finish!
+The further you go, the more coins and obstacles you’ll face, but you’ll always be racing against that 13-second timer.
 
-## **Features**
-
-- **Lightweight & Fast:** Built under 13 kilobytes, adhering to the js13kGames competition rules.
-- **Creative Challenges:** Each level presents a unique challenge tied to the number 13.
-- **Playful Design:** Engage with fun, fast-paced gameplay that tests both your speed and strategy.
+**Key Features:**
+- **Time Pressure:** 13 seconds per level—beat the clock or lose the game.
+- **Maze Exploration:** Navigate dynamic mazes filled with hazards and surprises.
+- **Coin Collection:** Grab the coins to unlock the exit and advance to the next challenge.
+- **Portal Mechanics:** Unlock portals to phase through walls and solve tricky puzzles.
+- **Minimal Size, Maximum Fun:** Built for the js13kGames competition, the entire game is under 13 KB!
 
 ## **How to Play**
 
 1. Clone or download the repository.
-2. Open `index.html` in your web browser to start the game.
+2. Open `dist/index.html` in your web browser to start the game.
 3. Navigate through the maze, collect coins, and dodge obstacles within the time limit!
 
 ## **Credits**
