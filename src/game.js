@@ -1,4 +1,3 @@
-import {assetsToLoad, directionMapper} from './constants.js';
 import {
     init,
     initKeys,
@@ -10,7 +9,8 @@ import {
 } from 'kontra';
 import Scene from './scene.js';
 
-import {backgroundSpriteTiles, spriteTiles} from './tilesets.js';
+import {backgroundSpriteTiles, spriteTiles} from '../assets/tilesets.js';
+import {assetsToLoad, directionMapper} from './constants.js';
 
 class Game {
     constructor() {

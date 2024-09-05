@@ -83,11 +83,11 @@ const map = { "compressionlevel":-1,
     "tilesets":[
            {
             "firstgid":1,
-            "source":"m13e.tsj"
+            "source":"m13e"
            }, 
            {
             "firstgid":7,
-            "source":"m13e-bg.tsj"
+            "source":"m13e-bg"
            }],
     "tilewidth":16,
     "type":"map",

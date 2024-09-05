@@ -7,6 +7,7 @@ import {
   Button,
   onInput
 } from "kontra";
+
 import {
   colors,
   sizes,
@@ -14,8 +15,8 @@ import {
   instructions,
   directionMapper,
 } from "./constants";
+import {map} from "../assets/map";
 import {calculateScore, getBestScore, setBestScore} from "./utils";
-import jsonmap from "../assets/jsonmap.json";
 
 class Scene {
   constructor() {
@@ -27,7 +28,7 @@ class Scene {
     this.gameSpeed = 3;
     this.isGameOver = false;
 
-    this.tileEngine = TileEngine(jsonmap);
+    this.tileEngine = TileEngine(map);
 
     this.coins = [];
     this.walls = [];
@@ -167,7 +168,7 @@ class Scene {
   initNextLevel = () => {
     this.level++;
     this.score += calculateScore(this.timer, this.deaths);
-    this.scoreText.text = `Score: ${this.score} | Best score: ${this.bestScore}`;
+    this.scoreText.text = `Score: ${this.score}  |  Best score: ${this.bestScore}`;
     this.deaths = 0;
     this.initLevel();
   };
@@ -190,7 +191,7 @@ class Scene {
     this.score = 0;
     this.deaths = 0;
     this.isGameOver = false;
-    this.scoreText.text = `Score: ${this.score} | Best score: ${this.bestScore}`;
+    this.scoreText.text = `Score: ${this.score}  |  Best score: ${this.bestScore}`;
     this.initLevel();
   }
 
@@ -262,7 +263,6 @@ class Scene {
     this.heroUpdate();
     this.coinsUpdate();
     this.timerUpdate(dt);
-    // this.button.render();
   };
 
   render = () => {
