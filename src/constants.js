@@ -120,7 +120,8 @@ const directionMapper = Object.entries({
     arrowright: {
         direction: 1,
         axis: 'x',
-    }
+    },
+    space: {}
 });
 
 const colors = {

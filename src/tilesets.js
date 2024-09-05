@@ -1,10 +1,12 @@
-const tilesetimg = new Image();
-tilesetimg.src = "../assets/m13e.png";
-const tilesetimgbg = new Image();
-tilesetimgbg.src = "../assets/m13e-bg.png";
+const spriteTilesImg = new Image();
+spriteTilesImg.src = "../assets/m13e.png";
 
-const tilesetBg = { "columns":2,
-    "image": tilesetimgbg,
+const backgroundSpriteTilesImg = new Image();
+backgroundSpriteTilesImg.src = "../assets/m13e-bg.png";
+
+const backgroundSpriteTiles = {
+    "columns":2,
+    "image": backgroundSpriteTilesImg,
     "imageheight":16,
     "imagewidth":32,
     "margin":0,
@@ -16,10 +18,11 @@ const tilesetBg = { "columns":2,
     "tilewidth":16,
     "type":"tileset",
     "version":"1.10"
-   }
+}
 
-const tileset = { "columns":2,
-    "image": tilesetimg,
+const spriteTiles = {
+    "columns":2,
+    "image": spriteTilesImg,
     "imageheight":48,
     "imagewidth":32,
     "margin":0,
@@ -31,9 +34,9 @@ const tileset = { "columns":2,
     "tilewidth":16,
     "type":"tileset",
     "version":"1.10"
-   }
+}
 
 export {
-    tileset,
-    tilesetBg
+    backgroundSpriteTiles,
+    spriteTiles
 }
