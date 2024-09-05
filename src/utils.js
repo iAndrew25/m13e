@@ -8,11 +8,11 @@ const calculateScore = (timeLeft, deathsNo) => {
 }
 
 const setBestScore = (score) => {
-    localStorage.setItem('bestScore', score);
+    localStorage.setItem('m13e::bestScore', score);
 };
 
 const getBestScore = () => {
-    return localStorage.getItem('bestScore');
+    return localStorage.getItem('m13e::bestScore');
 };
 
 export {
