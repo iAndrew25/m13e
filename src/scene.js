@@ -15,7 +15,7 @@ import {
   instructions,
   directionMapper,
 } from "./constants";
-import {map} from "../assets/map";
+import {map} from "./map";
 import {calculateScore, getBestScore, setBestScore} from "./utils";
 
 class Scene {

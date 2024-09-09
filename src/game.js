@@ -9,7 +9,7 @@ import {
 } from 'kontra';
 import Scene from './scene.js';
 
-import {backgroundSpriteTiles, spriteTiles} from '../assets/tilesets.js';
+import {backgroundSpriteTiles, spriteTiles} from './tilesets.js';
 import {assetsToLoad, directionMapper} from './constants.js';
 
 class Game {

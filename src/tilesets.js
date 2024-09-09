@@ -1,8 +1,8 @@
 const spriteTilesImg = new Image();
-spriteTilesImg.src = "../assets/m13e.png";
+spriteTilesImg.src = "./m13e.png";
 
 const backgroundSpriteTilesImg = new Image();
-backgroundSpriteTilesImg.src = "../assets/m13e-bg.png";
+backgroundSpriteTilesImg.src = "./m13e-bg.png";
 
 const backgroundSpriteTiles = {
   columns: 2,

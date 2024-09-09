@@ -1,8 +1,8 @@
 import {centerSprite} from './utils';
 
 const assetsToLoad = [
-    '../assets/m13e.png',
-    '../assets/m13e-bg.png',
+    './m13e.png',
+    './m13e-bg.png',
 ]
 
 const sizes = {
